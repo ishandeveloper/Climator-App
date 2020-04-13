@@ -1,6 +1,8 @@
 import 'package:climate_app/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:geolocator/geolocator.dart'; 
+import 'package:geolocator/geolocator.dart';
+
+import '../locator.dart'; 
 
 class ClimateLocation extends StatefulWidget {
   @override
@@ -9,12 +11,14 @@ class ClimateLocation extends StatefulWidget {
 
 class _ClimateLocationState extends State<ClimateLocation> {
 
+  void getLocation()async{
+    Location position=Location();
+    await position.getLocation();
+  }
 
-  @override
   @override
   void initState() { 
     super.initState();
-    getLocation();
   }
   Widget build(BuildContext context) {
     return Container(
