@@ -32,7 +32,7 @@ class _ClimateHomeState extends State<ClimateHome> {
   void getData(double lon, double lat) async {
     try {
       Response res = await get(
-          'https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${APIKey}');
+          'https://api.openweathermap.org/data/2.5/weather?lat=$lat&lon=$lon&appid=$APIKey');
       // print(jsonDecode(res.body));
       // String data=jsonDecode(res.body);
       // print(temperature-273);
