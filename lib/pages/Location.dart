@@ -11,9 +11,15 @@ class _ClimateLocationState extends State<ClimateLocation> {
 
   void getLocation()async{
     Position position=await Geolocator().getCurrentPosition(desiredAccuracy:LocationAccuracy.low);
+    print(position);
   }
 
   @override
+  @override
+  void initState() { 
+    super.initState();
+    getLocation();
+  }
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
