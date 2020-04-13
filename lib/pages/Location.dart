@@ -1,7 +1,18 @@
 import 'package:climate_app/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart'; 
 
-class ClimateLocation extends StatelessWidget {
+class ClimateLocation extends StatefulWidget {
+  @override
+  _ClimateLocationState createState() => _ClimateLocationState();
+}
+
+class _ClimateLocationState extends State<ClimateLocation> {
+
+  void getLocation()async{
+    Position position=await Geolocator().getCurrentPosition(desiredAccuracy:LocationAccuracy.low);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
