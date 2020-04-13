@@ -1,7 +1,5 @@
 import 'package:climate_app/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:geolocator/geolocator.dart';
-
 import '../locator.dart'; 
 
 class ClimateLocation extends StatefulWidget {
