@@ -1,3 +1,4 @@
+import 'package:climate_app/pages/CimateHome.dart';
 import 'package:climate_app/pages/Location.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +13,11 @@ class ClimateApp extends StatelessWidget {
       title: 'Climate',
       theme: ThemeData(iconTheme: IconThemeData(color: Colors.black)),
       debugShowCheckedModeBanner: false,
-      home: ClimateLocation(),
+      initialRoute: '/locator',
+      routes: {
+        '/':(context)=>ClimateHome(),
+        '/locator':(context)=>ClimateLocation(),
+      },
     );
   }
 }
