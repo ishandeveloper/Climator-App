@@ -13,7 +13,7 @@ class ClimateApp extends StatelessWidget {
       title: 'Climate',
       theme: ThemeData(iconTheme: IconThemeData(color: Colors.black)),
       debugShowCheckedModeBanner: false,
-      initialRoute: '/locator',
+      initialRoute: '/',
       routes: {
         '/':(context)=>ClimateHome(),
         '/locator':(context)=>ClimateLocation(),
