@@ -1,7 +1,9 @@
 import 'package:climate_app/constants.dart';
+import 'package:climate_app/pages/CimateHome.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../locator.dart'; 
-
+String searchCity;
 class ClimateLocation extends StatefulWidget {
   @override
   _ClimateLocationState createState() => _ClimateLocationState();
@@ -26,10 +28,32 @@ class _ClimateLocationState extends State<ClimateLocation> {
               fit: BoxFit.cover)),
       child: Scaffold(
         appBar: AppBar(
-          leading: Icon(Icons.location_city,
+          leading: Icon(
+            FontAwesomeIcons.wind,
             color: Colors.grey[900],
           ),
-          // title: Text('Hi'),
+          title: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              Text(
+                'Climator',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontFamily: 'Poppins',
+                  fontSize: 16,
+                ),
+              ),
+              Text(
+                'by ishandeveloper',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontFamily: 'Poppins',
+                  fontSize: 10,
+                ),
+              )
+            ],
+          ),
           backgroundColor: Color.fromARGB(1000, 170, 255, 236),
           elevation: 0,
           actions: <Widget>[
@@ -67,6 +91,14 @@ class _ClimateLocationState extends State<ClimateLocation> {
                   padding: EdgeInsets.only(left:10),
                   width: MediaQuery.of(context).size.width * 0.80,
                   child: TextField(
+                    onChanged: (value){
+                      setState(() {
+                        searchCity=value;
+                      });
+                    },
+                    onSubmitted: (value){
+                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>ClimateHome(city: value,)));
+                    },
                     autofocus: false,
                     decoration: InputDecoration(
                         icon: Icon(Icons.search),
@@ -74,6 +106,11 @@ class _ClimateLocationState extends State<ClimateLocation> {
                         // helperText: 'Search For Any City',
                         hintText: 'Search for any city'),
                   ),
+                ),
+                MaterialButton(onPressed: (){
+                  
+                },child: searchCity!=null?Text("Get Weather For '$searchCity'"):Text(''),
+                
                 )
               ],
             ),
