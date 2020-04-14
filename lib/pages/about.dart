@@ -1,16 +1,15 @@
 
-import 'package:climate_app/constants.dart';
 import 'package:flutter/material.dart';
 
 class AboutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Colors.deepPurple[900],
+      backgroundColor:Color.fromARGB(255, 170, 255, 236),
       appBar: AppBar(
-        title: Text("About Climator", style: TextStyle(color: Colors.white,fontFamily: 'Poppins')),
-        // backgroundColor: Colors.deepPurple[900],
-        iconTheme: IconThemeData(color: Colors.white),
+        title: Text("About Climator", style: TextStyle(color: Colors.black,fontFamily: 'Poppins')),
+        backgroundColor: Color.fromARGB(1000, 170, 255, 236),
+        iconTheme: IconThemeData(color: Colors.black),
         elevation: 0,
       ),
       body: Stack(
@@ -21,7 +20,7 @@ class AboutPage extends StatelessWidget {
                   height: MediaQuery.of(context).size.height / 2,
                   width: MediaQuery.of(context).size.width - 100,
                   child: Card(
-                    color: mainColor,
+                    color: Colors.white,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20)),
                     child: Column(
