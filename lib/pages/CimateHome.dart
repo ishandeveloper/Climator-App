@@ -116,7 +116,7 @@ class _ClimateHomeState extends State<ClimateHome> {
               )
             ],
           ),
-          backgroundColor: Color.fromARGB(1000, 170, 255, 236),
+          backgroundColor: mainColor,
           elevation: 0,
           actions: <Widget>[
             Container(
