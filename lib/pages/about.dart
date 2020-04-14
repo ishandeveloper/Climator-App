@@ -1,4 +1,5 @@
 
+import 'package:climate_app/constants.dart';
 import 'package:flutter/material.dart';
 
 class AboutPage extends StatelessWidget {
@@ -20,7 +21,7 @@ class AboutPage extends StatelessWidget {
                   height: MediaQuery.of(context).size.height / 2,
                   width: MediaQuery.of(context).size.width - 100,
                   child: Card(
-                    color: activeCardColor,
+                    color: mainColor,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20)),
                     child: Column(
