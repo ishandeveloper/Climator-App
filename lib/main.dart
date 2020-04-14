@@ -21,7 +21,7 @@ class ClimateApp extends StatelessWidget {
         ),
       ),
       debugShowCheckedModeBanner: false,
-      initialRoute: '/about',
+      initialRoute: '/',
       routes: {
         '/': (context) => ClimateHome(),
         '/locator': (context) => ClimateLocation(),
