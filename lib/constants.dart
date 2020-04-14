@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+const Color mainColor=Color.fromARGB(1000, 170, 255, 236);
+
 const TextStyle bigLocation = TextStyle(
   fontFamily: 'Poppins',
   fontSize: 32,
