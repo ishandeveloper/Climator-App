@@ -60,6 +60,9 @@ class _ClimateLocationState extends State<ClimateLocation> {
             Container(
               margin: EdgeInsets.only(right: 10),
               child: GestureDetector(
+                onTap: (){
+                  Navigator.pushNamed(context, '/about');
+                },
                 child: Icon(
                   Icons.info,
                   color: Colors.grey[900],
