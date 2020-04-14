@@ -14,26 +14,26 @@ String humidity = '0';
 String pressure = '0';
 
 class ClimateHome extends StatefulWidget {
-  final double longitude;
-  final double lattitude;
-  ClimateHome({this.longitude, this.lattitude});
+  final String city;
+  ClimateHome({this.city});
   @override
-  _ClimateHomeState createState() => _ClimateHomeState(longitude: longitude,lattitude: lattitude);
+  _ClimateHomeState createState() => _ClimateHomeState(location: city);
 }
 
 class _ClimateHomeState extends State<ClimateHome> {
-  double longitude;
-  double lattitude;
-  _ClimateHomeState({this.longitude,this.lattitude});
+  String location;
+  _ClimateHomeState({this.location});
   void getLocation() async {
-    if(longitude==null || lattitude==null){
-    Location position = Location();
-    await position.getLocation();
-    longitude=position.longitude;
-    lattitude=position.lattitude;
+    if (location == null) {
+      // print('Null');
+      Location position = Location();
+      await position.getLocation();
+      getData(position.longitude, position.lattitude, '');
+    } else {
+      // print('Not Null');
+      getData(0,0,location);
     }
     // print(position.lattitude);
-    getData(longitude, lattitude);
   }
 
   @override
@@ -42,10 +42,17 @@ class _ClimateHomeState extends State<ClimateHome> {
     getLocation();
   }
 
-  void getData(double lon, double lat) async {
+  void getData(double lon, double lat, String city) async {
     try {
-      Response res = await get(
+      Response res;
+      if(lon!=0 && lat!=0){
+        res = await get(
           'https://api.openweathermap.org/data/2.5/weather?lat=$lat&lon=$lon&appid=$APIKey');
+      }
+      else{
+        res = await get(
+          'https://api.openweathermap.org/data/2.5/weather?q=$city&appid=$APIKey');
+      }
       print(jsonDecode(res.body));
       // String data=jsonDecode(res.body);
       // print(temperature-273);
